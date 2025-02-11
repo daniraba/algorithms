@@ -18,7 +18,33 @@ public class Alg1 {
     }
 
     public int divideConquer(int[] a, int n) {
+        submax(int[] a, int low, int high) {
+            if (high == low) {
+                return a[low];
+            }
+            else {
+                mid = Math.floorDiv(low + high, 2);
+                leftsum = submax(a, low, mid);
+                rightsum = submax(a, mid + 1, high);
+                crosssum = crossingsub(a, low, mid, high);
+            }
+        }
 
+        crossingsub(int[] a, low, mid, high) {
+            for (int i = mid; i < low; i++) {
+                sum += a[i];
+                if (sum > leftsum) {
+                    leftsum == sum;
+                }
+            }
+            for (int j = mid + 1; j < high; j++) {
+                sum += a[j];
+                if (sum > rightsum) {
+                    rightsum == sum;
+                }
+            }
+            return leftsum + rightsum;
+        }
     }
 
     public static void main(String[] args) {
