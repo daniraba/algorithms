@@ -17,6 +17,10 @@ public class Alg1 {
         return submax;
     }
 
+    public int divideConquer(int[] a, int n) {
+
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
@@ -31,7 +35,12 @@ public class Alg1 {
         int maxSum = alg.bruteForce(a, n);
         long endTime = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println("Maximum subarray sum: " + maxSum + "\nThe time it took (nanoseconds) was: " + totalTime);
+        System.out.println("Brute Force Algorithm\n-----------\nMaximum subarray sum: " + maxSum + "\nThe time it took (nanoseconds) was: " + totalTime);
+        long startTime2 = System.nanoTime();
+        int maxSum2 = alg.divideConquer(a, n);
+        long endTime2 = System.nanoTime();
+        long totalTime2 = endTime2 - startTime2;
+        System.out.println("Divide and Conquer Algorithm\n-----------\nMaximum subarray sum: " + maxSum + "\nThe time it took (nanoseconds) was: " + totalTime);
         scan.close();
     }
 }
